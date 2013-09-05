@@ -1,0 +1,47 @@
+#container {
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	user-drag: none;
+	margin: 10px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
+	position: relative;
+}
+
+#canvas {
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	user-drag: none;
+}
+
+#piece_canvas {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	user-drag: none;
+}
+
+.pieceList {
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+}
