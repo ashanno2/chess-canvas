@@ -13,17 +13,20 @@
 	<div id="piece_selector" ng-controller="PieceSelectorCtrl" ng-style={width:(selector.width),height:(selector.height),borderStyle:(selector.borderStyle),borderColor:(selector.borderColor),borderWidth:(selector.borderWidth),position:'relative'}>
 	<select ng-model="setSelect" ng-options="set as set.label for set in sets" ng-change="setChange()"></select>
 		<div ng-repeat="image in images">
-			<img ng-src={{image.src}} class="pieceList" ng-click="selectPiece(image.src)">
+			<img ng-src={{image.src}} class="pieceList" ng-class="{selected: $index==selectedIndex}" ng-click="selectPiece(image.src,$index)">
 		</div>
-		<img id="pieceIMG" ng-src={{imgURL}} ng-click="updateCanvas()">
+		<img id="pieceIMG" ng-style={display:'none'} ng-src={{imgURL}}>
+		<button ng-click="updateCanvas()">Load</button>
 	</div>
 	<div id="piece_canvas" ng-style={position:'absolute',top:'0px',left:'25%',cursor:'default'}>
-			<canvas width="256" height="256" id="canvas" ng-style="{zIndex:0,position:'absolute',top:'0px',left:'0px'}" piece-canvas></canvas>
+			<canvas id="canvas" width="256" height="256" ng-style="{zIndex:0,position:'absolute',top:'0px',left:'0px'}" piece-canvas></canvas>
 	</div>
 			<input type="number" ng-model="alpha" min="0" max="100" ng-change="alphaChange()" required>
-			<input type="number" ng-model="drawSize" min="0" max="100" required>
+			<input type="number" ng-model="drawSize" min="0" max="10" required>
+			<input type="number" ng-model="canvasZoom" min="1" max="3" required>
 			Current alpha: {{a}}
 			Current draw size: {{drawSize}}
+			Current scale mod: {{canvasZoom}}
 	<div id="color_selector" ng-controller="ColorSelectorCtrl" ng-style={width:(selector.width),height:(selector.height),borderStyle:(selector.borderStyle),borderColor:(selector.borderColor),borderWidth:(selector.borderWidth),top:'5px',right:'5px',position:'absolute'}>
 		<div id="selected_color" ng-style="{backgroundColor:(selected.hex),height:(selected.height),width:(selected.width),top:(selected.top),left:(selected.left),position:'absolute'}">
 		&nbsp;

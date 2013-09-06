@@ -1,8 +1,9 @@
 function PieceEditorCtrl($scope,$http) {
 
-	//$scope.Math
+	$scope.canvasZoom = "0.5";
 	$scope.alpha = "100";
-	$scope.drawSize = "100";
+	$scope.drawSize = "10";
+
 	$scope.alphaChange = function(){
 		$scope.a = $scope.alpha/100;
 	}

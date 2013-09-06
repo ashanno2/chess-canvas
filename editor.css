@@ -45,3 +45,9 @@
 	height: 30px;
 	margin: 0 auto;
 }
+
+.pieceList.selected {
+	border-width:1px;
+	border-style:solid;
+	border-color:black;
+}

@@ -62,7 +62,8 @@ function PieceSelectorCtrl($scope,$http) {
         	];
 	}
 
-	$scope.selectPiece = function(src){
+	$scope.selectPiece = function(src,i){
+		$scope.selectedIndex = i;
 		$scope.$emit('selectedPiece',src);
 	}
 

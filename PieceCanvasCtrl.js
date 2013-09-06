@@ -6,8 +6,15 @@ var mod = angular.module("pieceEditor", []);
 			var isDrawing = false;
 			var prevX;
 			var prevY;
+			var width0 = 256;
+			var height0 = 256;
+			$scope.Math = window.Math;
 
-			$scope.updateCanvas = function(src){
+
+			$scope.updateCanvas = function(){
+				canvas.width = width0 * $scope.canvasZoom;
+				canvas.height = height0 * $scope.canvasZoom;
+				canvasContext.scale($scope.canvasZoom,$scope.canvasZoom);
 				canvasContext.fillStyle = "rgba(255, 255, 255, 1.0)";
 				canvasContext.fillRect(0,0,canvas.width,canvas.height);
 				var img = document.getElementById("pieceIMG");
@@ -15,16 +22,16 @@ var mod = angular.module("pieceEditor", []);
 			};
 
 			element.bind('mousedown', function(event){
-				prevX = event.offsetX;
-				prevY = event.offsetY;
+				prevX = $scope.Math.floor((event.offsetX)/$scope.canvasZoom);
+				prevY = $scope.Math.floor((event.offsetY)/$scope.canvasZoom);
         			canvasContext.beginPath();
         			isDrawing = true;
 			});
 
 			element.bind('mousemove', function(event){
 				if(isDrawing){
-				currentX = event.offsetX;
-				currentY = event.offsetY;
+				currentX = $scope.Math.floor((event.offsetX)/$scope.canvasZoom);
+				currentY = $scope.Math.floor((event.offsetY)/$scope.canvasZoom);
 				draw(prevX, prevY, currentX, currentY);
 				prevX = currentX;
 				prevY = currentY;
@@ -46,9 +53,10 @@ var mod = angular.module("pieceEditor", []);
 			function draw(pX, pY, cX, cY){
 				canvasContext.moveTo(pX,pY);
 				canvasContext.lineTo(cX,cY);
+				canvasContext.lineCap = 'round';
 				canvasContext.strokeStyle = $scope.drawColor;
-				//canvasContext.lineWidth = $scope.drawSize;
-				canvasContext.strokeRect("0","0","20","20");
+				canvasContext.lineWidth = $scope.drawSize;
+				//canvasContext.fillRect(cX,cY,$scope.drawSize,$scope.drawSize);
 				//canvasContext.arc(0, 0, 100, 0, Math.PI/360, true);
 				canvasContext.globalAlpha = $scope.a;
 				canvasContext.stroke();
