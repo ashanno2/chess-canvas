@@ -51,3 +51,58 @@
 	border-style:solid;
 	border-color:black;
 }
+
+#colorBox {
+	top: 90px;
+	left: 10px;
+	position: absolute;
+}
+
+#colorSelector {
+	width:140px;
+	height:820px;
+	border-style:solid;
+	border-color:black;
+	border-width:1px;
+	top:10px;
+	right:10px;
+	position:absolute;
+}
+
+#selectedColor {
+	top:10px;
+	left:10px;
+	height:40px;
+	width:120px;
+	position:absolute;
+}
+
+#recentColorBox {
+	top:60px;
+	left:10px;
+	position:absolute;
+}
+
+.recentColor {
+	width:20px;
+	height:20px;
+	float:left;
+}
+
+#canvasContainer {
+	cursor: default;
+	position:absolute;
+	top: 10px;
+	width: 770;
+	left: 160px;
+}
+
+#pieceSelector {
+	width:140px;
+	height:820px;
+	border-style:solid;
+	border-color:black;
+	border-width:1px;
+	position:relative;
+}
+

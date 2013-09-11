@@ -10,13 +10,18 @@ var mod = angular.module("pieceEditor", []);
 			var height0 = 256;
 			$scope.Math = window.Math;
 
+			$scope.scaleCanvas = function(){
+                                canvas.width = width0 * $scope.canvasZoom;
+                                canvas.height = height0 * $scope.canvasZoom;
+                                canvasContext.scale($scope.canvasZoom,$scope.canvasZoom);
+			}
 
-			$scope.updateCanvas = function(){
-				canvas.width = width0 * $scope.canvasZoom;
-				canvas.height = height0 * $scope.canvasZoom;
-				canvasContext.scale($scope.canvasZoom,$scope.canvasZoom);
+			$scope.clearCanvas = function(){
 				canvasContext.fillStyle = "rgba(255, 255, 255, 1.0)";
 				canvasContext.fillRect(0,0,canvas.width,canvas.height);
+			}
+
+			$scope.updateCanvas = function(){
 				var img = document.getElementById("pieceIMG");
 				canvasContext.drawImage(img,0,0);
 			};
@@ -56,8 +61,6 @@ var mod = angular.module("pieceEditor", []);
 				canvasContext.lineCap = 'round';
 				canvasContext.strokeStyle = $scope.drawColor;
 				canvasContext.lineWidth = $scope.drawSize;
-				//canvasContext.fillRect(cX,cY,$scope.drawSize,$scope.drawSize);
-				//canvasContext.arc(0, 0, 100, 0, Math.PI/360, true);
 				canvasContext.globalAlpha = $scope.a;
 				canvasContext.stroke();
 			}
