@@ -18,6 +18,7 @@
 		<!-- preloaded img since canvas cannot accept a url -->
 		<img id="pieceIMG" ng-style={display:'none'} ng-src={{imgURL}}>
 		<button ng-click="clearCanvas(); updateCanvas()">Load</button>
+		<button ng-click="saveCanvas()">Save</button>
 	</div>
 	<div id="canvasContainer">
 			<canvas id="canvasColorLayer" class="canvas" piece-canvas></canvas>
@@ -45,6 +46,7 @@
 			</div>
 		</div>
 	</div>
+{{ base }}
 </div><!-- /container -->
 </body>
 </html>

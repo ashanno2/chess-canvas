@@ -5,6 +5,7 @@ function PieceEditorCtrl($scope,$http) {
 	$scope.drawSize = "10";
 
 	$scope.alphaChange = function(){
+		//alpha syntax is decimal from 0 to 1.0
 		$scope.a = ($scope.alpha * 10)/100;
 	}
 
@@ -13,6 +14,8 @@ function PieceEditorCtrl($scope,$http) {
 	});
 
 	$scope.$on("selectedPiece", function(event,src){
+		//load url to hidden img so that canvas can read it
 		$scope.imgURL = src;
 	});
+
 }

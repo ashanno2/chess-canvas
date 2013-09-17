@@ -15,7 +15,7 @@
 	position: relative;
 }
 
-#canvas {
+.canvas {
 	border-width: 1px;
 	border-color: black;
 	border-style: solid;
@@ -27,6 +27,16 @@
 	-ms-user-select: none;
 	user-select: none;
 	user-drag: none;
+	top:0;
+	position:absolute;
+}
+
+#canvasColorLayer {
+	left:0;
+}
+
+#canvasPieceLayer {
+	left: 260px;
 }
 
 #piece_canvas {
